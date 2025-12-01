@@ -76,7 +76,7 @@ target_include_directories(oboe
 
 # Compile Flags:
 #     Enable -Werror when building debug config
-#     Enable -Ofast
+#     replace -Ofast
 target_compile_options(oboe
         PRIVATE
         -std=c++17
@@ -84,7 +84,7 @@ target_compile_options(oboe
         -Wextra-semi
         -Wshadow
         -Wshadow-field
-        -Ofast
+        -O3 -ffast-math
         "$<$<CONFIG:DEBUG>:-Werror>")
 
 # Enable logging of D,V for debug builds
