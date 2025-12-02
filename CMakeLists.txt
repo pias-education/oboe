@@ -93,7 +93,7 @@ target_include_directories(oboe
 
 # Compile Flags:
 #     Enable -Werror when building debug config
-#     Enable -Ofast
+#     replace -Ofast
 target_compile_options(oboe
         PRIVATE
         -std=c++17
@@ -101,8 +101,7 @@ target_compile_options(oboe
         -Wextra-semi
         -Wshadow
         -Wshadow-field
-        "$<$<CONFIG:RELEASE>:-Ofast>"
-        "$<$<CONFIG:DEBUG>:-O3>"
+        -O3 -ffast-math
         "$<$<CONFIG:DEBUG>:-Werror>")
 
 target_compile_definitions(oboe PRIVATE $<$<BOOL:${OBOE_DISABLE_CONVERSION}>:DISABLE_CONVERSION=1>)
